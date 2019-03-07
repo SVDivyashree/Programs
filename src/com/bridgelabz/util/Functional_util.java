@@ -20,20 +20,25 @@ import java.util.Scanner;
 		public static void isCoupon(int n)
 		{
 		Random t= new Random();
-		int j=t.nextInt(50);
-		
 		int count=0;
+		
+		
+		
 		for(int i=1; i<=n;i++)
-		{
-		    if( j!=t.nextInt(50))
-			{
-				System.out.println( t.nextInt(50));
+		{   
+			int j=t.nextInt(10);
+			t.nextInt();
 			
-			t.nextInt(50);
-			count++;
-			}
-		}
-		System.out.println("Total number of coupons:  " + count);
+			if(j!=t.nextInt(10))
+			{
+				System.out.println(t.nextInt(10));
+				t.nextInt(10);
+		
+				count++;
+			}	
+				}
+		
+		System.out.println("Distinct coupon numbers are:"+count);
 		}
 	
 		
@@ -218,7 +223,59 @@ import java.util.Scanner;
 	{
 		
 		long timeElapsed = endTime - startTime;
-		System.out.println("Execution time in milliseconds:" + timeElapsed/1000000		);
+		System.out.println("Execution time in milliseconds:" + timeElapsed);
+	}
+	
+	//Two Dimensional Array
+	public static void twoDArray(int a,int b)
+	{
+		int c[][]= new int[a][b];
+		for(int i=0;i<a;i++)
+		{
+				for(int j=0;j<b;j++)
+				{
+				c[i][j]=Functional_util.inputinteger();	
+				}
+		}
+		System.out.println();
+	    for(int i=0;i<a;i++)
+		{
+			for(int j=0;j<b;j++)
+			{
+				System.out.print(c[i][j]+ " ");
+			}
+			System.out.println(" ");
 	}
 	}
+	// Sum of triplets equal to zero
+		
+	public static void isTriplet(int[] a, int n, int sum) {
+		int i,j,k;
+		for(i=0;i<n-2;i++)
+		{
+			for(j=i+1;j<n-1;j++)
+			{
+				for(k=j+1;k<n;k++)
+				{
+					if(a[i]+a[j]+a[k]==sum)
+						System.out.println("["+a[i]+" " +a[j]+ " " + a[k]+"]");
+					
+				}
+			}
+		}
+		
+		
+	}
+	//EUCLIDEAN DISTANCE
 
+		
+		public static double calcDist(double x, double y) {
+			{
+				
+				double dis = Math.sqrt((x*x)+(y*y));
+				return dis;
+			}
+			
+		}
+	}
+	

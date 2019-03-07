@@ -10,6 +10,7 @@ import com.bridgelabz.util.Functional_util;
 
 				long startTime = System.currentTimeMillis();
 			    System.out.println("start time=" + startTime);
+			    TimeUnit.SECONDS.sleep(10);
 			   
 			    long endTime = System.currentTimeMillis();
 				System.out.println("End time=" + endTime);
