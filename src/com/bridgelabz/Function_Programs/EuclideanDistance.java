@@ -6,11 +6,9 @@ public class EuclideanDistance {
 
 	public static void main(String[] args) 
 	{     	
-	    
-		double dis;
+	    double dis;
 	    int x=Integer.parseInt(args[0]);
 	    int y=Integer.parseInt(args[1]);
-		
 		dis=Math.sqrt((x*x) + (y*y));
  	 	Functional_util.calcDist(x, y); 
  	 	System.out.println("The Euclidean distance is:"+dis);

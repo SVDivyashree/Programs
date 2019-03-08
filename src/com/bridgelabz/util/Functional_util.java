@@ -1,6 +1,8 @@
 package com.bridgelabz.util;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.Scanner;
 
 	public class Functional_util {
@@ -42,18 +44,8 @@ import java.util.Scanner;
 		}
 	
 		
-		//Naming program
-	public static void isName(String user)
-	{
-		if (user.length()>=3)
-		{
-	    System.out.println("Hello" + user + "How was the day?");
-		}
-		else 
-		{
-			System.out.println("Invalid input");
-		}
-	}
+		
+	
 	
 	    //flipCoin	
 	public static void isFlip(int flips) {
@@ -277,5 +269,21 @@ import java.util.Scanner;
 			}
 			
 		}
+		//WINDCHILL
+		public static void isTemperature(double t, double v)
+		{
+			double w= 35.74 + 0.6215*t + (0.4275*t - 35.75) * Math.pow(v, 0.16);
+			System.out.println("Wind chill  = " + w);
+		}
+		//Replace string
+		public static String replaces(String user, String user1) 
+		{
+		final String str = "<<username>>";
+		Pattern p =Pattern.compile(str);
+		Matcher m= p.matcher(user);
+		String res= m.replaceFirst(user1);
+		return res;
+		}
+
 	}
 	
