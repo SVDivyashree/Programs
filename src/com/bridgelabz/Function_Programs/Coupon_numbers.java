@@ -8,12 +8,8 @@ public class Coupon_numbers
 	{
         System.out.println("How many coupons do you want to be generated??");
 		int n=Functional_util.inputinteger();
-		
-	
-	    Functional_util.isCoupon(n);
-	    
-	
-
-	}
+		int distinct =Functional_util.isCoupon(n);
+	    System.out.println("Distinct count is :" + distinct);
+	 }
 
 }

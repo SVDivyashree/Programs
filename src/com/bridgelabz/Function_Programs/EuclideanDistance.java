@@ -1,10 +1,8 @@
 package com.bridgelabz.Function_Programs;
-
 import com.bridgelabz.util.Functional_util;
-
 public class EuclideanDistance {
 
-	public static void main(String[] args) 
+	  public static void main(String[] args) 
 	{     	
 	    double dis;
 	    int x=Integer.parseInt(args[0]);

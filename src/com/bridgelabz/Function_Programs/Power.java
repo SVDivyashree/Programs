@@ -6,7 +6,7 @@ public class Power{
 	{
 		//This is the given input number n
 		System.out.println("Enter the max n value"); 
-		int n= Functional_util.inputinteger();
+		int n= Integer.parseInt(args[0]);
 		Functional_util.isPower(n);
 	}
 }
