@@ -6,7 +6,7 @@ import com.bridgelabz.util.Functional_util;
 
 public class StopWatch {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 
 		long startTime = System.nanoTime();
 		long endTime = System.nanoTime();

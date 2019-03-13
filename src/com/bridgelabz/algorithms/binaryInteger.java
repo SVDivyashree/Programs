@@ -2,49 +2,36 @@ package com.bridgelabz.algorithms;
 
 import java.util.Scanner;
 
-public class binaryInteger {
+import com.bridgelabz.util.Algorithms_util;
+import com.bridgelabz.util.Functional_util;
+
+public class BinaryInteger {
 
 	public static void main(String[] args) 
-	{
-		   int c, first, last, middle, n, search, array[];
-		 
-		    Scanner in = new Scanner(System.in);
-		    System.out.println("Enter number of elements");
-		    n = in.nextInt();
-		    array = new int[n];
-		 
-		    System.out.println("Enter " + n + " integers");
-		 
-		 
-		    for (c = 0; c < n; c++)
-		      array[c] = in.nextInt();
-		 
-		    System.out.println("Enter value to find");
-		    search = in.nextInt();
-		 
-		    first  = 0;
-		    last   = n - 1;
-		    middle = (first + last)/2;
-		 
-		    while( first <= last )
-		    {
-		      if ( array[middle] < search )
-		        first = middle + 1;    
-		      else if ( array[middle] == search )
-		      {
-		        System.out.println(search + " found at location " + (middle + 1) + ".");
-		        break;
-		      }
-		      else
-		         last = middle - 1;
-		 
-		      middle = (first + last)/2;
-		   }
-		   if (first > last)
-		      System.out.println(search + " isn't present in the list.\n");
-		  }
+	{  
+		//Binary Integer
+		int i;
+		System.out.println("Enter number of elements");
+		int n = Algorithms_util.inputinteger();
+		int[] array=new int[n];
+		System.out.println("Enter " + n + " integers");
+	    for(i=0;i<n;i++)
+	    {
+	    array[i]=Algorithms_util.inputinteger();
+	    }
+	    System.out.println("Enter the key");
+	    int key=Algorithms_util.inputinteger();
+	    
+		long startTime = System.nanoTime();
 		
-
+		Algorithms_util.binInt(array, n, key);
+		long endTime = System.nanoTime();
+		long elapsed_time = Functional_util.stopWatch(startTime, endTime);
+		System.out.println(elapsed_time+"ns");
+	    
+	    
+		
+	}
 	}
 
 

@@ -1,5 +1,7 @@
 package com.bridgelabz.util;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -20,15 +22,6 @@ public class Functional_util {
 	public static double inputDouble() {
 		return scanner.nextDouble();
 	}
-	//CouponNumbers 
-	
-	
-		
-
-
-
-
-
 	//flipCoin	
 	public static void isFlip(int flips) {
 		int counter=0;
@@ -131,10 +124,6 @@ public class Functional_util {
             System.out.println(sum);
 		}
 			}
-		
-	
-
-
 	//Gambler game
 	public static void isGamble(int stake,int goal,int trials)
 	{
@@ -240,8 +229,6 @@ public class Functional_util {
 
 	}
 	//EUCLIDEAN DISTANCE
-
-
 	public static double calcDist(double x, double y) {
 		{
 
@@ -265,7 +252,7 @@ public class Functional_util {
 		String res= m.replaceFirst(user1);
 		return res;
 	}
-	// Permutation of Strings
+	// Permutation of Strings RECURSION
 	public static String permutations(String str, int l,int r)
 	{
 		if (l==r) {
@@ -293,6 +280,8 @@ public class Functional_util {
 				return String.valueOf(charArray);
 			
 			}
+			
+		
 // COUPON
 			public static int isCoupon(int n)
 			{

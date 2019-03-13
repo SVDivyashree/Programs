@@ -16,6 +16,9 @@ public class Algorithms_util {
 	public static double inputDouble() {
 		return scanner.nextDouble();
 	}
+	public static char inputChar() {
+		return scanner.next().charAt(0);
+	}
 
 	public static boolean areAnagram(String str1,String str2) 
 	{ 
@@ -53,29 +56,85 @@ public class Algorithms_util {
 	//Prime numbers
 	public static void isPrime(int min, int max)
 	{
-		int count,n,i;
-	for (n =min;n<=max; n++) 
-	{  
-		count=0;
-		
-		for(i=2;i<=n/2;i++)
-		{
-				if (n% i== 0)
-				{  
-					count++;
-					break;
-				}  
-		}
-			if(count==0 && n!=1)
-			{   
-				
-				System.out.println(n);
-				
-			}
 	}
-	
+	//BinaryInteger
+	public static void binInt(int[] array,int n,int key)
+	{
+		int first = 0;
+		int last = n - 1;
+		int middle = (first + last)/2;
+
+		while( first <= last )
+		{
+			if ( array[middle] < key )
+				first = middle + 1;    
+			else if ( array[middle] == key )
+			{
+				System.out.println(key + " found at location " + middle  + ".");
+				break;
+			}
+			else
+				last = middle - 1;
+
+			middle = (first + last)/2;
+		}
+		if (first > last)
+			System.out.println(key + " isn't present in the list.\n");
+	}
+
+	public static void binString(String str, int n, char key)
+	{
+
+		char array[]= str.toCharArray();
+		int first = 0;
+		int last = n - 1;
+		int middle = (first + last)/2;
+
+
+		while( first <= last )
+		{
+			if ( array[middle] < key )
+				first = middle + 1;    
+			else if ( array[middle] == key )
+			{
+				System.out.println(key + " found at location " + middle);
+				break;
+			}
+			else
+				last = middle - 1;
+
+			middle = (first + last)/2;
+		}
+		if (first > last)
+			System.out.println(key + " isn't present in the list.\n");
+
+	}
+
+
+//BubbleInteger
+public static void bubbleSortInt(int []ar,int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n-i-1;j++)
+		{
+			if(ar[j]>ar[j+1])
+			{
+				int temp=ar[j];
+				ar[j]=ar[j+1];
+				ar[j+1]=temp;
+			}
+		}
+	}
+	System.out.println("The sorted elements are:");
+	for(int i=0;i<n;i++)
+	{
+		System.out.println( ar[i]+ " ");
 	}
 }
+}
+
+
 
 
 
