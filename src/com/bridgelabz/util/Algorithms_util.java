@@ -107,34 +107,99 @@ public class Algorithms_util {
 		}
 		if (first > last)
 			System.out.println(key + " isn't present in the list.\n");
-
+ 
 	}
 
 
-//BubbleInteger
-public static void bubbleSortInt(int []ar,int n)
-{
-	for(int i=0;i<n;i++)
+	//BubbleInteger
+	public static void bubbleSortInt(int []ar,int n)
 	{
-		for(int j=0;j<n-i-1;j++)
+		for(int i=0;i<n;i++)
 		{
-			if(ar[j]>ar[j+1])
+			for(int j=0;j<n-i-1;j++)
 			{
-				int temp=ar[j];
-				ar[j]=ar[j+1];
-				ar[j+1]=temp;
+				if(ar[j]>ar[j+1])
+				{
+					int temp=ar[j];
+					ar[j]=ar[j+1];
+					ar[j+1]=temp;
+				}
 			}
 		}
+		System.out.println("The sorted elements are:");
+		for(int i=0;i<n;i++)
+		{
+			System.out.println( ar[i]+ " ");
+		}
 	}
-	System.out.println("The sorted elements are:");
-	for(int i=0;i<n;i++)
+	//Insertion Sort
+	public static void InsertionSort(int[] ar, int n) {
+
+		for (int j = 1; j < n; j++) {  
+			int key = ar[j];  
+			int i = j-1;  
+			while ( (i > -1) && ( ar[i] > key ) ) {  
+				ar [i+1] = ar [i];  
+				i--;  
+			}  
+			ar[i+1] = key;  
+		}  
+	
+
+
+
+	for(int i:ar){    
+		System.out.print(i+" ");    
+	}    
+	System.out.println();    
+
+}
+	public static void bubbleSortString(String str, int n1) 
 	{
-		System.out.println( ar[i]+ " ");
+		char[]ar=str.toCharArray();
+			for(int i=0;i<n1;i++)
+			{
+				for(int j=0;j<n1-i-1;j++)
+				{
+					if(ar[j]>ar[j+1])
+					{
+						char temp=ar[j];
+						ar[j]=ar[j+1];
+						ar[j+1]=temp;
+					}
+				}
+			}
+			System.out.println("The sorted elements are:");
+			for(int i=0;i<n1;i++)
+			{
+				System.out.println( ar[i]+ " ");
+			}
+		}
+	public static void insertSortString(String str, int n)
+	{
+            char ar[]=str.toCharArray();
+			for (int j = 1; j < n; j++) {  
+				char key = ar[j];  
+				int i = j-1;  
+				while ( (i > -1) && ( ar[i] > key ) ) {  
+					ar [i+1] = ar [i];  
+					i--;  
+				}  
+				ar[i+1] = key;  
+			}  
+		
+
+
+
+		for(int i:ar){    
+			System.out.print(i+" ");    
+		}    
+		System.out.println();    
+
 	}
-}
-}
-
-
-
-
+		
+		
+	}
+		
+	
 
