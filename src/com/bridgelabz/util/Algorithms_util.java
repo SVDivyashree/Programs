@@ -1,6 +1,7 @@
 package com.bridgelabz.util;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Algorithms_util<T> {
@@ -23,7 +24,7 @@ public class Algorithms_util<T> {
 
 	public static boolean areAnagram(String str1,String str2) 
 	{ 
-		// Get lengths of both strings 
+
 		int n1 = str1.length(); 
 		int n2 = str2.length(); 
 
@@ -31,6 +32,7 @@ public class Algorithms_util<T> {
 		// then they cannot be anagram 
 		if (n1 != n2) 
 		{
+
 			return false;
 		}
 		char[] s1= str1.toCharArray();
@@ -48,11 +50,8 @@ public class Algorithms_util<T> {
 				return false; 
 
 			}
-
-			return true; 
-
 		}
-		return false;
+		return true;
 	} 
 	//Prime numbers
 	public static void isPrime(int min, int max)
@@ -76,65 +75,15 @@ public class Algorithms_util<T> {
 			num++;
 		}
 	}
-
-
-	//BinaryInteger
-	//	public static void binInt(int[] array,int n,int key)
-	//	{
-	//		int first = 0;
-	//		int last = n - 1;
-	//		int middle = (first + last)/2;
-	//
-	//		while( first <= last )
-	//		{
-	//			if ( array[middle] < key )
-	//				first = middle + 1;    
-	//			else if ( array[middle] == key )
-	//			{
-	//				System.out.println(key + " found at location " + middle  + ".");
-	//				break;
-	//			}
-	//			else
-	//				last = middle - 1;
-	//
-	//			middle = (first + last)/2;
-	//		}
-	//		if (first > last)
-	//			System.out.println(key + " isn't present in the list.\n");
-	//	}
-
-	
-
-	//BubbleInteger
-	public static void bubbleSortInt(Integer[] array,int n)
-	{
-		for(int i=0;i<n;i++)
-		{
-			for(int j=0;j<n-i-1;j++)
-			{
-				if(array[j]>array[j+1])
-				{
-					int temp=array[j];
-					array[j]=array[j+1];
-					array[j+1]=temp;
-				}
-			}
-		}
-		System.out.println("The sorted elements are:");
-		for(int i=0;i<n;i++)
-		{
-			System.out.println( array[i]+ " ");
-		}
-	}
 	//Insertion Sort
-	public static void InsertionSort(int[] ar, int n) {
+	public static void insertionSort(int[] ar, int n) {
 
 		for (int j = 1; j < n; j++) {  
 			int key = ar[j];  
 			int i = j-1;  
 			while ( (i > -1) && ( ar[i] > key ) ) {  
 				ar [i+1] = ar [i];  
-				i--;  
+				i--;   
 			}  
 			ar[i+1] = key;  
 		}  
@@ -144,71 +93,54 @@ public class Algorithms_util<T> {
 		System.out.println();    
 
 	}
-	public static void bubbleSortString(String[] array, int n1) 
-	{
-		
-		for(int i=0;i<n1;i++)
-		{
-			for(int j=0;j<n1-i-1;j++)
-			{
-				if(array[j].compareToIgnoreCase(array[j+1]) > 0)
-				{
-					String temp = array[j];
-					array[j]=array[j+1];
-					array[j+1]=temp;
-				}
-			}
-		}
-		System.out.println("The sorted elements are:");
-		for(int i=0;i<n1;i++)
-		{
-			System.out.println( array[i]+ " ");
-		}
-	}
-	public static void insertSortString(String str, int n)
-	{
-		char ar[]=str.toCharArray();
-		for (int j = 1; j < n; j++) {  
-			char key = ar[j];  
-			int i = j-1;  
-			while ( (i > -1) && ( ar[i] > key ) ) {  
-				ar [i+1] = ar [i];  
-				i--;  
-			}  
-			ar[i+1] = key;  
-		}  
 
-		for(int i:ar){    
-			System.out.print(i+" ");    
+	public static void insertSortString(String[] strArray, int n,String key)
+	{
+		int j;
+		   for (j = 1; j < n; j++) {
+		        key = strArray[j];
+		        int i = j - 1;
+		        while (i >= 0) {
+		            if (key.compareTo(strArray[i]) < 0) {
+		                break;
+		            }
+		            strArray[i + 1] = strArray[i];
+		            i--;
+		        }
+		        strArray[i + 1] = key;
+		   }
+		        
+		for(String k:strArray){    
+			System.out.print(k+" ");    
 		}    
 		System.out.println();    
 
 	}
 
-	public static <T extends Comparable<T>> T[] search(T[] array,T key) {
-		
+	public static <T extends Comparable<T>> T[] binsearch(T[] array,T key) {
+
 		int arrLength=array.length;
 		int first = 0;
 		int last = arrLength - 1;
 		int middle = (first + last)/2;
 		while( first <= last )
 		{
-			
+
 			if (key.compareTo(array[middle])> 0)
 			{
-				
-            first = middle + 1;  
-				
+
+				first = middle + 1;  
+
 			}
-			else if ( array[middle].equals(key ))
+			else if ( array[middle].equals(key))
 			{
-				
+
 				System.out.println(key + " found at location " + middle);
 				break;
 			}
 			else
 				last = middle - 1;
-			    middle = (first + last)/2;
+			middle = (first + last)/2;
 		}
 		if (first > last)
 			System.out.println(key + " isn't present in the list.\n");
@@ -223,8 +155,8 @@ public class Algorithms_util<T> {
 			double payment= (principal*r)/1-pow;
 			return payment;
 		}
-		
-		
+
+
 	}
 	public static double SquareRoot(int c)
 	{
@@ -240,18 +172,171 @@ public class Algorithms_util<T> {
 	{
 		switch(choice)
 		{
-	    case 1:
-		double Fahrenheit= (temperature * 9/5) + 32;
-		System.out.println(Fahrenheit + "F");
-	    case 2:
-		double Celsius= (temperature - 32) * 5/9;
-		System.out.println(Celsius + "C"); 
+		case 1:
+			double Fahrenheit= (temperature * 9/5) + 32;
+			System.out.println(Fahrenheit + "F");
+		case 2:
+			double Celsius= (temperature - 32) * 5/9;
+			System.out.println(Celsius + "C"); 
 		default:
 			break;
-	}
+		}
 		return 0;
 	}
+
+	// BubbleSort for List Integers
+	public static void bubble(List<Integer> numbers, int n)
+	{
+		int i,temp;
+		for(i=0;i<numbers.size()-1;i++)
+		{
+			for(int j=0;j<numbers.size()-i-1;j++)
+			{
+				if(numbers.get(j)>numbers.get(j+1))
+				{
+					temp=numbers.get(j);
+					numbers.set(j,numbers.get(j+1));
+					numbers.set(j+1, temp);
+				}
+			}
+		}
+		for(int k:numbers)	
+		{
+			System.out.println(k + " ");
+		}
+
+	}
+	//Binary Search for words
+	public static int binarySearchWord(List<String> words, int n, String key)
+	{
+		int first=0;
+		int last=n-1;
+		int mid =(first+last)/2;
+
+		while(first<=last)
+		{
+			if(key.compareTo(words.get(mid))>0)
+			{
+				first=mid+1;
+			}
+			else if(words.get(mid).equals(key))
+			{
+				System.out.println("The key is found at location :" + mid);
+				break;
+			}
+			else if(key.compareTo(words.get(mid))<0)
+				last = mid - 1;
+			mid = (first + last)/2;
+		}
+		if (first > last)
+			System.out.println(key + " isn't present in the list.\n");
+		return mid ;
+	}
+
+	public static void bubbleSort(Integer[] array,int n)
+	{
+
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<n-i-1;j++)
+			{
+				if(array[j]>(array[j+1]))
+				{
+					int temp=array[j];
+					array[j]=array[j+1];
+					array[j+1]=temp;
+				}
+			}
+		}
+		System.out.println("The sorted elements are:");
+		for(int i=0;i<n;i++)
+		{
+			System.out.println( array[i]+ " ");
+		}
+
+	}
+	public static void bubbleSortString(String[] array, int n1)
+	{
+		for(int i=0;i<n1;i++)
+		{
+			for(int j=0;j<n1-i-1;j++)
+			{
+				if(array[j].compareTo(array[j+1])>0)
+				{
+					String temp=array[j];
+					array[j]=array[j+1];
+					array[j+1]=temp;
+				}
+			}
+
+		}
+	}
+
+	public static <T extends Comparable<T>> T[] bubbleGeneric(T[] array,int n) 
+	{
+
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<n-i-1;j++)
+			{
+				if(array[j+1].compareTo(array[j])<0)
+				{
+					T temp=array[j];
+					array[j]=array[j+1];
+					array[j+1]=temp;
+				}
+			}
+
+		}
+		return array;
+	}
+	public static void insertionSortWord(List<String> words, int n, String key)
+	{
+		for (int j = 1; j < n; j++) {  
+
+			int i = j-1;  
+			while ( (i > -1) && ( key.compareTo(words.get(i))<0 ) ) {  
+				words.set(i+1, words.get(i));
+				i--;  
+			}  
+			words.set(i+1,key); 
+		}  
+       for(String k: words)
+       {
+    	   System.out.println(k + " ");
+       }
+	
+
+	}
+	public static void vendorMachine(int[] notes, int value) {
+		int i = 0,total = 0;
+		if(value/notes[i]!=0)
+		{
+			total =+value/notes[i];
+			System.out.println(notes[i]+"rs notes :"+value/notes[i]);
+			value= value %notes[i];
+		}
+			i++;
+		if(value==0)
+		{
+		System.out.println("Total notes:" + total);	
+		}
+		
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

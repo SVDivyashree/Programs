@@ -9,6 +9,7 @@ public class Anagram {
 		System.out.println("Enter the two strings");
 		String str1=Algorithms_util.inputString();
 		String str2=Algorithms_util.inputString();
+		
 		boolean res=Algorithms_util.areAnagram(str1, str2);
 		if(res)
 		System.out.println("The given strings are anagrams");

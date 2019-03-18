@@ -1,7 +1,5 @@
 package com.bridgelabz.algorithms;
 
-import java.util.Scanner;
-
 import com.bridgelabz.util.Algorithms_util;
 import com.bridgelabz.util.Functional_util;
 
@@ -11,38 +9,35 @@ public class BubbleSort {
 	{
 		System.out.println("Give an input value");
 		int input= Algorithms_util.inputinteger();
-		if(input==1)
-			System.out.println("Perform BubbleSort operation for integers");
-		if(input==2)
-			System.out.println("Perform BubbleSort operation for String");
-	
-		long startTime = System.nanoTime();
+
+	    long startTime = System.nanoTime();
 		switch (input) {
 		case 1:
+		System.out.println("Perform BubbleSort operation for integers");
 		System.out.println("Enter the number of array elements:");
 		int n=Algorithms_util.inputinteger();
-		int ar[]=new int[n];
+		Integer array[]=new Integer[n];
+		int k;
 		System.out.println("Enter the array elements");
-		for(int k=0;k<n;k++)
+		for( k=0;k<n;k++)
 		{
-		ar[k]=Algorithms_util.inputinteger();
+		array[k]=Algorithms_util.inputinteger();
+		System.out.println(array[k]);
 		}
-		Algorithms_util.bubbleSortInt(ar, n);
-		
+        Algorithms_util.bubbleSort(array, n);
+		break;
 		case 2:
+			System.out.println("Perform BubbleSort operation for String");
 			System.out.println("Enter the number of array elements:");
 			int n1=Algorithms_util.inputinteger();
 			int i;
-			String array[]=new String[n1];
-			System.out.println("Enter the array elements");
+			String array1[]=new String[n1];
+			
 			for( i=0;i<n1;i++)
 			{
-			array[i]=Algorithms_util.inputString();
+			array1[i]=Algorithms_util.inputString();
 			}
-			Algorithms_util.bubbleSortString(array, n1);
-			
-           
-			break;
+			Algorithms_util.bubbleSortString(array1, n1);
 		default:
 		break;
 		}
@@ -53,6 +48,7 @@ public class BubbleSort {
 		
 
 	}
+}
 
-	}
+	
 

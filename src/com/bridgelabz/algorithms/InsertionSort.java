@@ -16,24 +16,28 @@ public class InsertionSort {
 		if(input==2)
 			System.out.println("Perform InsertionSort operation for String");
 		long startTime = System.nanoTime();
-		switch (input) {
-		case 1:
 		System.out.println("Enter the number of array elements:");
 		int n=Algorithms_util.inputinteger();
+		switch (input) {
+		case 1:
 		int ar[]=new int[n];
 		System.out.println("Enter the array elements");
 		for(int i=0;i<n;i++)
 		{
 		ar[i]=Algorithms_util.inputinteger();
 		}
-		Algorithms_util.InsertionSort(ar, n);
-		
+		Algorithms_util.insertionSort(ar, n);
+		break;
 		case 2:
-            System.out.println("Enter the String :");
-            Scanner sc = new Scanner(System.in);
-            String str= sc.nextLine();
-            int n1=str.length();
-			Algorithms_util.insertSortString(str, n1);
+			String strArray[]=new String[n];
+			System.out.println("Enter the array elements");
+			for(int i=0;i<n;i++)
+			{
+			strArray[i]=Algorithms_util.inputString();
+			}
+			System.out.println("Enter the key");
+            String key=Algorithms_util.inputString();
+			Algorithms_util.insertSortString(strArray, n,key);
 			break;
 		default:
 		break;
