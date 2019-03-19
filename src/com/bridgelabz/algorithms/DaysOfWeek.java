@@ -13,6 +13,7 @@ public class DaysOfWeek {
 		Integer year= Integer.parseInt(args[2]);
 		Algorithms_util.dayOfWeek(month,date,year);
 		
+		
 	}
 
 }

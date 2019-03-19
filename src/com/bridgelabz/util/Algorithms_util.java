@@ -76,48 +76,31 @@ public class Algorithms_util<T> {
 		}
 	}
 	//Insertion Sort
-	public static void insertionSort(int[] ar, int n) {
-
-		for (int j = 1; j < n; j++) {  
-			int key = ar[j];  
-			int i = j-1;  
-			while ( (i > -1) && ( ar[i] > key ) ) {  
-				ar [i+1] = ar [i];  
-				i--;   
-			}  
-			ar[i+1] = key;  
-		}  
-		for(int i:ar){    
-			System.out.print(i+" ");    
-		}    
-		System.out.println();    
-
-	}
-
-	public static void insertSortString(String[] strArray, int n,String key)
+public static <T extends Comparable<T>> void insertionSort(T[] strArray,int n)
 	{
 		int j;
-		   for (j = 1; j < n; j++) {
-		        key = strArray[j];
-		        int i = j - 1;
-		        while (i >= 0) {
-		            if (key.compareTo(strArray[i]) < 0) {
-		                break;
-		            }
-		            strArray[i + 1] = strArray[i];
-		            i--;
-		        }
-		        strArray[i + 1] = key;
-		   }
-		        
-		for(String k:strArray){    
+		for (j = 1; j < n; j++) {
+			T key = strArray[j];
+			int i = j - 1;
+			while (i >= 0) {
+				if (key.compareTo(strArray[i]) > 0) {
+					break;
+				}
+				strArray[i + 1] = strArray[i];
+				i--;
+			}
+			strArray[i + 1] = key;
+		}
+
+		for(T k:strArray){    
 			System.out.print(k+" ");    
 		}    
 		System.out.println();    
 
 	}
-
-	public static <T extends Comparable<T>> T[] binsearch(T[] array,T key) {
+//BINARY SEARCH
+	public static <T extends Comparable<T>> T[] binsearch(T[] array,T key)
+	{
 
 		int arrLength=array.length;
 		int first = 0;
@@ -158,6 +141,7 @@ public class Algorithms_util<T> {
 
 
 	}
+	//SQUARE ROOT
 	public static double SquareRoot(int c)
 	{
 		double t=c;
@@ -168,6 +152,7 @@ public class Algorithms_util<T> {
 		}
 		return t;
 	}
+	//TEMPERATURE CONVERSION
 	public static double tempConversion(double temperature,int choice) 
 	{
 		switch(choice)
@@ -233,46 +218,8 @@ public class Algorithms_util<T> {
 		return mid ;
 	}
 
-	public static void bubbleSort(Integer[] array,int n)
-	{
-
-		for(int i=0;i<n;i++)
-		{
-			for(int j=0;j<n-i-1;j++)
-			{
-				if(array[j]>(array[j+1]))
-				{
-					int temp=array[j];
-					array[j]=array[j+1];
-					array[j+1]=temp;
-				}
-			}
-		}
-		System.out.println("The sorted elements are:");
-		for(int i=0;i<n;i++)
-		{
-			System.out.println( array[i]+ " ");
-		}
-
-	}
-	public static void bubbleSortString(String[] array, int n1)
-	{
-		for(int i=0;i<n1;i++)
-		{
-			for(int j=0;j<n1-i-1;j++)
-			{
-				if(array[j].compareTo(array[j+1])>0)
-				{
-					String temp=array[j];
-					array[j]=array[j+1];
-					array[j+1]=temp;
-				}
-			}
-
-		}
-	}
-
-	public static <T extends Comparable<T>> T[] bubbleGeneric(T[] array,int n) 
+	//BUBBLE SORT
+	public static <T extends Comparable<T>> void bubbleSort(T[] array,int n) 
 	{
 
 		for(int i=0;i<n;i++)
@@ -288,8 +235,14 @@ public class Algorithms_util<T> {
 			}
 
 		}
-		return array;
-	}
+		System.out.println("The sorted elements are :");
+		for(T k :array)
+		{
+			System.out.println(k + " ");
+		}
+		}
+		
+	
 	public static void insertionSortWord(List<String> words, int n, String key)
 	{
 		for (int j = 1; j < n; j++) {  
@@ -301,30 +254,141 @@ public class Algorithms_util<T> {
 			}  
 			words.set(i+1,key); 
 		}  
-       for(String k: words)
-       {
-    	   System.out.println(k + " ");
-       }
-	
+		for(String k: words)
+		{
+			System.out.println(k + " ");
+		}
+
 
 	}
-	public static void vendorMachine(int[] notes, int value) {
-		int i = 0,total = 0;
-		if(value/notes[i]!=0)
+	public static void vendorMachine(int[] change,int cash)
+	{
+		for(int i=change.length-1;i>=0;i--)
 		{
-			total =+value/notes[i];
-			System.out.println(notes[i]+"rs notes :"+value/notes[i]);
-			value= value %notes[i];
+			int count=0;
+			if(cash==0)
+				return;
+			else 
+			{
+				if(cash>=change[i])
+				{
+					count=cash/change[i];
+					System.out.println(change[i]+" notes:"+count);
+					cash=cash-(count*change[i]);
+				}
+			} 
+
 		}
-			i++;
-		if(value==0)
+
+	}
+	public static void dayOfWeek(Integer month, Integer date, Integer year)
+	{
+		int y0 = year - (14 - month) / 12;
+		int x = y0 + y0 / 4 -y0 / 100 + y0 / 400;
+		int m0 = month + 12 * ((14 - month) / 12) -2;
+		int day  = (date + x + (31 * m0) / 12) % 7;
+		System.out.println("Day of the week" +" " + day);
+	}
+	public static void decToBinary(int n) {
+
+		// array to store binary number 
+		int[] binaryNum = new int[1000]; 
+
+		// counter for binary array 
+		int i = 0; 
+		while (n > 0)  
+		{ 
+			// storing remainder in binary array 
+			binaryNum[i] = n % 2; 
+			n = n / 2; 
+			i++; 
+		} 
+
+		// printing binary array in reverse order 
+		for (int j = i - 1; j >= 0; j--) 
+			System.out.print(binaryNum[j]); 
+	}
+	public static int swapNibbles(int x) {
+		{ 
+			return ((x & 0x0F) << 4 | (x & 0xF0) >> 4); 
+		}
+	}
+
+	public static boolean isPowerOfTwo(int res)
+	{
+		return (int)(Math.ceil((Math.log(res) / Math.log(2)))) ==  
+				(int)(Math.floor(((Math.log(res) / Math.log(2))))); 
+	}
+
+	//MERGESORT 
+
+	public static void merge(String[] array)
+	{
+		if (array.length>=2)
 		{
-		System.out.println("Total notes:" + total);	
+			String left[]= new String[array.length/2];
+			String right[]= new String[array.length-(array.length/2)];
+			for( int i=0;i<left.length;i++)
+			{
+				left[i]= array[i];
+			}
+			for( int j=0;j<right.length;j++)
+			{
+				right[j]= array[j+(array.length/2)];
+			}
+			merge(left);
+			merge(right);
+			mergeSort(array,left,right);		
+		}
+	}
+	public static void mergeSort(String[] array, String[] left, String[] right)
+	{
+		int a=0,b=0;
+		for(int i=0;i<array.length;i++)
+			if(b>=right.length ||
+			(a< left.length && left[a].compareToIgnoreCase(right[b])<0))
+			{
+				array[i]=left[a];
+				a++;
+			}
+			else
+			{
+
+				array[i]=right[b];
+				b++;	
+			}
+		for(String str:array)
+		 {
+			 System.out.println(array);
+		 }
+	}
+	public static int find(int low, int high)
+	{
+		int mid;
+		while(low!=high)
+		{
+			mid=(low+high)/2;
+			System.out.println("Enter 1 if the number is between" + low + " - "+ mid +
+					           "\nEnter 2 if number is between" +(mid+1) + "-" + high);
+			int c=Algorithms_util.inputinteger();
+			if(c==1)
+				high=mid;
+			else
+				low=mid+1;
+		}
+		return low;
 		}
 		
 	}
+ 
 
-}
+
+
+
+
+
+
+
 
 
 
