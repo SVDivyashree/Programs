@@ -14,37 +14,42 @@ import java.util.Scanner;
 
 public class BinarySearchWord
 {
-	
-	
-	  public static void main(String[] args)throws Exception 
-	  { 
-		  String path= Paths.get("C:\\Users\\Divya\\Desktop\\words.txt").toString();
-	  File file = new File(path); 
-	  
-	  BufferedReader br = new BufferedReader(new FileReader(file)); 
-	
-  
-	  String st; 
-	  while ((st = br.readLine()) != null) 
-	    System.out.println("Strings are  " + st); 
-	
 
-	 
-	  System.out.println("Enter the key to search:");
-	  String key=Algorithms_util.inputString();
 
-	  
-	    
-	    }
-	  
+	public static void main(String[] args)throws Exception 
+	{ 
+		File file = new File("C:\\Users\\Divya\\Desktop\\words.txt"); 
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+		int i=0;
+		String delimitor = ",";
+		long size=file.length();
+		String[] strr=new String[100];
+		String st;
+		while ((st = br.readLine()) != null)
+		{
+			 strr=st.split(delimitor);
+		}
+		for (String a: strr) {
+			if(a!=null)
+			System.out.println(a);
+		}
+		 
+		System.out.println("Enter the key to search:");
+		String key=Algorithms_util.inputString();
+		Algorithms_util.binsearch(strr, key);
+
+
+
+	}
+
 }
 
-  
 
 
 
 
-	
+
+
 
 
 

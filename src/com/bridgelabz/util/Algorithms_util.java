@@ -108,7 +108,7 @@ for(T k: array)
 		while( first <= last )
 		{
 
-			if (key.compareTo(array[middle])> 0)
+			if (key.compareTo(array[middle])< 0)
 			{
 
 				first = middle + 1;  
@@ -168,34 +168,7 @@ for(T k: array)
 		return 0;
 	}
 
-		//Binary Search for words
-	public static int binarySearchWord(List<String> words, int n, String key)
-	{
-		int first=0;
-		int last=n-1;
-		int mid =(first+last)/2;
-
-		while(first<=last)
-		{
-			if(key.compareTo(words.get(mid))>0)
-			{
-				first=mid+1;
-			}
-			else if(words.get(mid).equals(key))
-			{
-				System.out.println("The key is found at location :" + mid);
-				break;
-			}
-			else if(key.compareTo(words.get(mid))<0)
-				last = mid - 1;
-			mid = (first + last)/2;
-		}
-		if (first > last)
-			System.out.println(key + " isn't present in the list.\n");
-		return mid ;
-	}
-
-	//BUBBLE SORT
+			//BUBBLE SORT
 	public static <T extends Comparable<T>> void bubbleSort(T[] array,int n) 
 	{
 
