@@ -1,5 +1,6 @@
 package com.bridgelabz.util;
 
+import java.io.FileReader;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -76,32 +77,30 @@ public class Algorithms_util<T> {
 		}
 	}
 	//Insertion Sort
-public static <T extends Comparable<T>> void insertionSort(T[] strArray,int n)
+public static <T extends Comparable<T>> void insertionSort(T[] array,T key)
 	{
-		int j;
-		for (j = 1; j < n; j++) {
-			T key = strArray[j];
-			int i = j - 1;
-			while (i >= 0) {
-				if (key.compareTo(strArray[i]) > 0) {
-					break;
-				}
-				strArray[i + 1] = strArray[i];
-				i--;
+	for (int j = 1; j < array.length; j++) {  
+        key = array[j];
+		int i = j - 1;
+		while (i >= 0) {
+			if (key.compareTo(array[i]) > 0) {
+				break;
 			}
-			strArray[i + 1] = key;
+			array[i + 1] = array[i];
+			i--;
 		}
-
-		for(T k:strArray){    
-			System.out.print(k+" ");    
-		}    
-		System.out.println();    
-
+		array[i + 1] = key;
 	}
+
+for(T k: array)
+{
+	System.out.println(k + " ");
+}
+			}
 //BINARY SEARCH
 	public static <T extends Comparable<T>> T[] binsearch(T[] array,T key)
 	{
-
+    
 		int arrLength=array.length;
 		int first = 0;
 		int last = arrLength - 1;
@@ -169,29 +168,7 @@ public static <T extends Comparable<T>> void insertionSort(T[] strArray,int n)
 		return 0;
 	}
 
-	// BubbleSort for List Integers
-	public static void bubble(List<Integer> numbers, int n)
-	{
-		int i,temp;
-		for(i=0;i<numbers.size()-1;i++)
-		{
-			for(int j=0;j<numbers.size()-i-1;j++)
-			{
-				if(numbers.get(j)>numbers.get(j+1))
-				{
-					temp=numbers.get(j);
-					numbers.set(j,numbers.get(j+1));
-					numbers.set(j+1, temp);
-				}
-			}
-		}
-		for(int k:numbers)	
-		{
-			System.out.println(k + " ");
-		}
-
-	}
-	//Binary Search for words
+		//Binary Search for words
 	public static int binarySearchWord(List<String> words, int n, String key)
 	{
 		int first=0;
@@ -243,24 +220,8 @@ public static <T extends Comparable<T>> void insertionSort(T[] strArray,int n)
 		}
 		
 	
-	public static void insertionSortWord(List<String> words, int n, String key)
-	{
-		for (int j = 1; j < n; j++) {  
-
-			int i = j-1;  
-			while ( (i > -1) && ( key.compareTo(words.get(i))<0 ) ) {  
-				words.set(i+1, words.get(i));
-				i--;  
-			}  
-			words.set(i+1,key); 
-		}  
-		for(String k: words)
-		{
-			System.out.println(k + " ");
-		}
-
-
-	}
+		
+	//VENDOR MACHINE
 	public static void vendorMachine(int[] change,int cash)
 	{
 		for(int i=change.length-1;i>=0;i--)
@@ -289,6 +250,7 @@ public static <T extends Comparable<T>> void insertionSort(T[] strArray,int n)
 		int day  = (date + x + (31 * m0) / 12) % 7;
 		System.out.println("Day of the week" +" " + day);
 	}
+	//DECIMAL TO BINARY CONVERSION
 	public static void decToBinary(int n) {
 
 		// array to store binary number 
@@ -341,6 +303,7 @@ public static <T extends Comparable<T>> void insertionSort(T[] strArray,int n)
 			mergeSort(array,left,right);		
 		}
 	}
+	//MergeSort
 	public static void mergeSort(String[] array, String[] left, String[] right)
 	{
 		int a=0,b=0;
@@ -362,6 +325,7 @@ public static <T extends Comparable<T>> void insertionSort(T[] strArray,int n)
 			 System.out.println(array);
 		 }
 	}
+	//Guess the Number
 	public static int find(int low, int high)
 	{
 		int mid;
@@ -378,6 +342,10 @@ public static <T extends Comparable<T>> void insertionSort(T[] strArray,int n)
 		}
 		return low;
 		}
+	public static void binsearch(FileReader fr, String key) {
+		
+		
+	}
 		
 	}
  

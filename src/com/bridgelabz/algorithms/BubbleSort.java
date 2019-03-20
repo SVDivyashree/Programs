@@ -19,7 +19,7 @@ public class BubbleSort {
 		Algorithms_util.bubbleSort(strArray, n);
 	    long endTime = System.nanoTime();
 		long elapsed_time = Functional_util.stopWatch(startTime, endTime);
-		System.out.println("The time taken to perform binary search operation is " + elapsed_time + "ns");
+		System.out.println("The time taken to perform bubble sort operation is " + elapsed_time + "ns");
 	}
 }
 		

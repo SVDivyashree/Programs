@@ -25,6 +25,8 @@ public class MergeSort {
 		{
 			System.out.println(sort);	
 		}
+		
+	
 		long endTime = System.nanoTime();
 		long elapsed_time = Functional_util.stopWatch(startTime, endTime);
 		System.out.println("The elapsed time is:" +elapsed_time+"ns");

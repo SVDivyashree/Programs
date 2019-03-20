@@ -7,7 +7,7 @@ public class BinarySearch {
 	public static <T> void main(String[] args) 
 	{
 		
-		System.out.println("Enter number of elements");
+		System.out.println("Enter number of elements"); 
 		int n = Algorithms_util.inputinteger();
 		String[] strArray = new String[n];
 		System.out.println("Enter the elements ");
