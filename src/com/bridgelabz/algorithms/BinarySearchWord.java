@@ -14,16 +14,12 @@ import java.util.Scanner;
 
 public class BinarySearchWord
 {
-
-
 	public static void main(String[] args)throws Exception 
 	{ 
 		File file = new File("C:\\Users\\Divya\\Desktop\\words.txt"); 
         BufferedReader br = new BufferedReader(new FileReader(file)); 
-		int i=0;
 		String delimitor = ",";
-		long size=file.length();
-		String[] strr=new String[100];
+	    String[] strr=new String[100];
 		String st;
 		while ((st = br.readLine()) != null)
 		{
@@ -37,10 +33,7 @@ public class BinarySearchWord
 		System.out.println("Enter the key to search:");
 		String key=Algorithms_util.inputString();
 		Algorithms_util.binsearch(strr, key);
-
-
-
-	}
+		}
 
 }
 

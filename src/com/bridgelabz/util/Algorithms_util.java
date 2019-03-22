@@ -1,6 +1,7 @@
 package com.bridgelabz.util;
 
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -54,53 +55,33 @@ public class Algorithms_util<T> {
 		}
 		return true;
 	} 
-	//Prime numbers
-	public static void isPrime(int min, int max)
+
+
+	//Insertion Sort
+	public static <T extends Comparable<T>> void insertionSort(T[] array,T key)
 	{
-		int num=min;
-		while(num<=max)
-		{
-			int count=0;
-			int i=2;
-			while(i<=num/2)
-			{
-				if(num%i==0)
-				{
-					count++;
+		for (int j = 1; j < array.length; j++) {  
+			key = array[j];
+			int i = j - 1;
+			while (i >= 0) {
+				if (key.compareTo(array[i]) > 0) {
 					break;
 				}
-				i++;
+				array[i + 1] = array[i];
+				i--;
 			}
-			if(count==0 && num!=1)
-				System.out.println(num);
-			num++;
+			array[i + 1] = key;
 		}
-	}
-	//Insertion Sort
-public static <T extends Comparable<T>> void insertionSort(T[] array,T key)
-	{
-	for (int j = 1; j < array.length; j++) {  
-        key = array[j];
-		int i = j - 1;
-		while (i >= 0) {
-			if (key.compareTo(array[i]) > 0) {
-				break;
-			}
-			array[i + 1] = array[i];
-			i--;
-		}
-		array[i + 1] = key;
-	}
 
-for(T k: array)
-{
-	System.out.println(k + " ");
-}
-			}
-//BINARY SEARCH
+		for(T k: array)
+		{
+			System.out.println(k + " ");
+		}
+	}
+	//BINARY SEARCH
 	public static <T extends Comparable<T>> T[] binsearch(T[] array,T key)
 	{
-    
+
 		int arrLength=array.length;
 		int first = 0;
 		int last = arrLength - 1;
@@ -108,7 +89,7 @@ for(T k: array)
 		while( first <= last )
 		{
 
-			if (key.compareTo(array[middle])< 0)
+			if (key.compareTo(array[middle])> 0)
 			{
 
 				first = middle + 1;  
@@ -120,7 +101,7 @@ for(T k: array)
 				System.out.println(key + " found at location " + middle);
 				break;
 			}
-			else
+			else 
 				last = middle - 1;
 			middle = (first + last)/2;
 		}
@@ -168,7 +149,7 @@ for(T k: array)
 		return 0;
 	}
 
-			//BUBBLE SORT
+	//BUBBLE SORT
 	public static <T extends Comparable<T>> void bubbleSort(T[] array,int n) 
 	{
 
@@ -190,10 +171,10 @@ for(T k: array)
 		{
 			System.out.println(k + " ");
 		}
-		}
-		
-	
-		
+	}
+
+
+
 	//VENDOR MACHINE
 	public static void vendorMachine(int[] change,int cash)
 	{
@@ -215,6 +196,7 @@ for(T k: array)
 		}
 
 	}
+	//DAY OF THE WEEK
 	public static void dayOfWeek(Integer month, Integer date, Integer year)
 	{
 		int y0 = year - (14 - month) / 12;
@@ -294,9 +276,9 @@ for(T k: array)
 				b++;	
 			}
 		for(String str:array)
-		 {
-			 System.out.println(array);
-		 }
+		{
+			System.out.println(array);
+		}
 	}
 	//Guess the Number
 	public static int find(int low, int high)
@@ -306,7 +288,7 @@ for(T k: array)
 		{
 			mid=(low+high)/2;
 			System.out.println("Enter 1 if the number is between" + low + " - "+ mid +
-					           "\nEnter 2 if number is between" +(mid+1) + "-" + high);
+					"\nEnter 2 if number is between" +(mid+1) + "-" + high);
 			int c=Algorithms_util.inputinteger();
 			if(c==1)
 				high=mid;
@@ -314,14 +296,115 @@ for(T k: array)
 				low=mid+1;
 		}
 		return low;
+	}
+	public static void isPrime()
+	{
+
+		System.out.println("Enter the min range");
+		int min= Algorithms_util.inputinteger();
+		System.out.println("Enter the max range");
+		int max= Algorithms_util.inputinteger();
+		System.out.println("The prime numbers are :");
+		int i, count;
+		List<Integer> list = new ArrayList<Integer>();
+		while (min <= max) {
+			count = 0;
+			i = 2;
+			//Divisors always lies between 0 to (number/2)
+			while (i <= min / 2) {
+				if (min % i == 0) {
+					count++;
+					break;
+				}
+				i++;
+			}
+			if (count == 0 && min != 1)
+				list.add(min);
+
+			min++;
 		}
-	public static void binsearch(FileReader fr, String key) {
-		
-		
+		for(int k: list)
+		{
+			System.out.print(k + " ");
+		}
 	}
-		
+		public static  boolean isPalindrome(int k)
+		{
+			int temp = k;
+			int sum = 0;
+			while (temp != 0) {
+				int r = temp % 10;
+				sum = sum * 10 + r;
+				temp = temp / 10;
+			}
+			if (sum == k) {
+				return true;
+			}
+			return false;
+		}
+
+	
+
+
+	//Function to check if no s anagram or not
+
+	public static void primeAnagrams() {
+		ArrayList<Integer> ar = new ArrayList<Integer>();
+		System.out.println();
+		boolean b;
+		for (int j = 2; j <= 1000; j++) {
+			b = true;
+			for (int i = 2; i < j / 2; i++) {
+				if (j % i == 0) {
+					b = false;
+					break;
+				}
+			}
+			if (b)
+				ar.add(j);
+		}
+		for (int i = 0; i < ar.size(); i++) {
+			for (int j = i + 1; j < ar.size(); j++) {
+				if (anagram(ar.get(i), ar.get(j))) {
+					System.out.println(ar.get(i) + "  " + ar.get(j));
+				}
+			}
+		}
 	}
- 
+
+
+	//To check the values are anagrams or not
+
+	public static boolean anagram(int n1, int n2)
+
+	{
+		int[] n1count = count(n1);
+		int[] n2count = count(n2);
+		for (int i = 0; i < n2count.length; i++) {
+			if (n1count[i] != n2count[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+
+
+	public static int[] count(int n) {
+		int[] count = new int[10];
+		int temp = n;
+		while (temp != 0) {
+			int r = temp % 10;
+			count[r]++;
+			temp = temp / 10;
+		}
+		return count;
+	}
+
+
+
+
+}
 
 
 
