@@ -1,6 +1,6 @@
 package com.bridgelabz.algorithms;
 
-import com.bridgelabz.util.Algorithms_util;
+import com.bridgelabz.util.AlgorithmsUtil;
 
 public class DaysOfWeek {
 
@@ -11,7 +11,7 @@ public class DaysOfWeek {
 		Integer date= Integer.parseInt(args[1]);
 		
 		Integer year= Integer.parseInt(args[2]);
-		Algorithms_util.dayOfWeek(month,date,year);
+		AlgorithmsUtil.dayOfWeek(month,date,year);
 		
 		
 	}

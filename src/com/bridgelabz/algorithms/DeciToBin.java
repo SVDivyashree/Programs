@@ -1,15 +1,15 @@
 package com.bridgelabz.algorithms;
 
-import com.bridgelabz.util.Algorithms_util;
+import com.bridgelabz.util.AlgorithmsUtil;
 
 public class DeciToBin {
 
 	public static void main(String[] args) 
 	{
 		System.out.println("Enter the number");
-		int n=Algorithms_util.inputinteger();
+		int n=AlgorithmsUtil.inputinteger();
 	        
-	        Algorithms_util.decToBinary(n); 
+	        AlgorithmsUtil.decToBinary(n); 
 	    } 
 	
 		

@@ -1,5 +1,5 @@
 package com.bridgelabz.algorithms;
-import com.bridgelabz.util.Algorithms_util;
+import com.bridgelabz.util.AlgorithmsUtil;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -31,8 +31,8 @@ public class BinarySearchWord
 		}
 		 
 		System.out.println("Enter the key to search:");
-		String key=Algorithms_util.inputString();
-		Algorithms_util.binsearch(strr, key);
+		String key=AlgorithmsUtil.inputString();
+		AlgorithmsUtil.binsearch(strr, key);
 		}
 
 }

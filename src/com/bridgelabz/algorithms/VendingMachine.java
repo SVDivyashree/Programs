@@ -1,21 +1,17 @@
 package com.bridgelabz.algorithms;
 
-import com.bridgelabz.util.Algorithms_util;
+import com.bridgelabz.util.AlgorithmsUtil;
 
 public class VendingMachine {
 
 	public static void main(String[] args)
 	{
-		System.out.println("Enter the number of values:");
-		int n= Algorithms_util.inputinteger();
-		int[] change = new int[n];
-		for(int i=0;i<n;i++)
-		{
-			change[i]=Algorithms_util.inputinteger();
-		}
+	
+		int[] change =  {1000,500,100,50,10,2,1};
+		
 		System.out.println("enter the  money");
-		int cash = Algorithms_util.inputinteger();
-		Algorithms_util.vendorMachine(change, cash);
+		int cash = AlgorithmsUtil.inputinteger();
+		AlgorithmsUtil.vendorMachine(change,cash);
 	}
 }
 
