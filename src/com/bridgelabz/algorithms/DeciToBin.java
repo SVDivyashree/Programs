@@ -7,9 +7,9 @@ public class DeciToBin {
 	public static void main(String[] args) 
 	{
 		System.out.println("Enter the number");
-		int n=AlgorithmsUtil.inputinteger();
+		int input=AlgorithmsUtil.inputinteger();
 	        
-	        AlgorithmsUtil.decToBinary(n); 
+	        AlgorithmsUtil.decToBinary(input); 
 	    } 
 	
 		

@@ -95,7 +95,7 @@ public class FunctionalUtil {
 
 	}
 	//Leap year program
-	public static void leapYear(int year){
+	public static boolean leapYear(int year){
 		if(year>=1000)
 		{
 			if (((year % 4 == 0) && (year % 100!= 0)) || (year%400 == 0))
@@ -106,6 +106,7 @@ public class FunctionalUtil {
 		else {
 			System.out.println("Invalid input");
 		}
+		return false;
 	}
 
 	//Harmonic series
