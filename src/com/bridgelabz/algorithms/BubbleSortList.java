@@ -23,7 +23,7 @@ public class BubbleSortList {
 		{
 			array[i]=numbers.get(i);
 		}
-		AlgorithmsUtil.bubbleSort(array, n);
+		AlgorithmsUtil.bubbleSort(array);
 	}
 
 }

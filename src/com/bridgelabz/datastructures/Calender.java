@@ -3,15 +3,12 @@ import java.util.Scanner;
 import com.bridgelabz.util.AlgorithmsUtil;
 import com.bridgelabz.util.FunctionalUtil;
 import com.bridgelabz.util.DataStructuresUtil;
-
-
 public class Calender 
 {
 	public static void main(String[] args) {
         int month = Integer.parseInt(args[0]);    
         int year = Integer.parseInt(args[1]);     
-        String[] months = {
-            "",                               
+        String[] months = { "",                               
             "January", "February", "March",
             "April", "May", "June",
             "July", "August", "September",

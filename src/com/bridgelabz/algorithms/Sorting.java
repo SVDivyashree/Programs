@@ -20,14 +20,14 @@ public class Sorting {
 		{
 		case 1:
 			long startTime = System.nanoTime();
-			AlgorithmsUtil.bubbleSort(strArray, n);
+			AlgorithmsUtil.bubbleSort(strArray);
 			long endTime = System.nanoTime();
 			long elapsed_time = FunctionalUtil.stopWatch(startTime, endTime);
 			System.out.println("The time taken to perform bubbleSort "
 					+ "operation is:" +elapsed_time + "ns");
 			break;
 		case 2:
-			AlgorithmsUtil.bubbleSort(strArray, n);
+			AlgorithmsUtil.bubbleSort(strArray);
 			System.out.println("Enter the key to search");
 			String keyElement = AlgorithmsUtil.inputString();
 			long start = System.nanoTime();

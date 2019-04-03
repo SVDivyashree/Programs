@@ -29,7 +29,7 @@ public class BinarySearchWord
 			if(a!=null)
 			System.out.println(a);
 		}
-		AlgorithmsUtil.bubbleSort(strr, strr.length);
+		AlgorithmsUtil.bubbleSort(strr);
 		System.out.println("Enter the key to search:");
 		String key=AlgorithmsUtil.inputString();
 		AlgorithmsUtil.binsearch(strr, key);

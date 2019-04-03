@@ -12,20 +12,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SinglyLinkedList<T> {
-	private Node<T> head;
-	private Node<T> tail;
-	private int size = 0;
+	private static Node head;
+	private static Node tail;
+	private static int size = 0;
 	private String key;
-	public String[] get;
 	static String[] str = new String[100];
 	static SinglyLinkedList newList = new SinglyLinkedList();
 
-	public boolean isEmpty() {
+	public static boolean isEmpty() {
 		return head == null;
 	}
 
-	public String addElement(String key) {
-		Node<T> nd = new Node<T>();
+	public static String addElement(String key) {
+		Node nd = new Node();
 		nd.setValue(key);
 		size++;
 
@@ -46,9 +45,9 @@ public class SinglyLinkedList<T> {
 		return null;
 	}
 
-	public void traverse() {
+	public static void traverse() {
 
-		Node<T> tmp = head;
+		Node tmp = head;
 		while (true) {
 			if (tmp == null) {
 				break;
@@ -59,9 +58,19 @@ public class SinglyLinkedList<T> {
 
 	}
 
-	public void get(String i) {
+	public String toString() {
+		Node temp = head;
+		String elements = "";
+		while (temp.getNextRef() != null) {
+			elements += " " + temp.getValue() + " ";
+			temp = temp.getNextRef();
+		}
+		return elements + temp.getValue();
+	}
 
-		Node<T> tmp = head;
+	public static void get() {
+
+		Node tmp = head;
 		int k = 0;
 		while (true) {
 			if (tmp == null) {
@@ -71,12 +80,12 @@ public class SinglyLinkedList<T> {
 			k++;
 			tmp = tmp.getNextRef();
 		}
-		
 	}
 
-	public SinglyLinkedList<T> searchKey(SinglyLinkedList<T> list, String key) {
+	public static SinglyLinkedList searchKey(SinglyLinkedList list, String key) {
 		Node current = head;
 		boolean status = false;
+
 		for (int i = 0; i < str.length - 1; i++) {
 			if (str[i] != null && str[i].equals(key)) {
 				status = true;
@@ -98,16 +107,5 @@ public class SinglyLinkedList<T> {
 
 		return newList;
 	}
-
-	public int size() {
-		
-		return size();
-	}
-
-	public Object stream() {
-		
-		return null;
-	}
-
 	
 }

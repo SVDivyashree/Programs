@@ -128,20 +128,23 @@ import java.util.Scanner;
 	}
 
 	// BUBBLE SORT
-	public static <T extends Comparable<T>> void bubbleSort(T[] array, int n) {
+	public static <T extends Comparable<T>> void bubbleSort(String[] strArray) 
+	{
+		System.out.println("Enter number of elements"); 
+		int n = AlgorithmsUtil.inputinteger();
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n - i - 1; j++) {
-				if (array[j + 1].compareTo(array[j]) < 0) {
-					T temp = array[j];
-					array[j] = array[j + 1];
-					array[j + 1] = temp;
+				if (strArray[j + 1].compareTo(strArray[j]) < 0) {
+					String temp = strArray[j];
+					strArray[j] = strArray[j + 1];
+					strArray[j + 1] = temp;
 				}
 			}
 
 		}
 		System.out.println("The sorted elements are :");
-		for (T k : array) {
+		for (String k : strArray) {
 			System.out.println(k + " ");
 		}
 	}
