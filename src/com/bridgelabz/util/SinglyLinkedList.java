@@ -1,21 +1,14 @@
 package com.bridgelabz.util;
 
-import java.util.Arrays;
-import com.bridgelabz.util.*;
-import java.util.Arrays;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
-public class SinglyLinkedList<T> {
+public class SinglyLinkedList<T extends Comparable<T>> {
+
 	private static Node head;
 	private static Node tail;
 	private static int size = 0;
-	private String key;
+	private Node key;
+	private int length;
 	static String[] str = new String[100];
 	static SinglyLinkedList newList = new SinglyLinkedList();
 
@@ -25,7 +18,7 @@ public class SinglyLinkedList<T> {
 
 	public static String addElement(String key) {
 		Node nd = new Node();
-		nd.setValue(key);
+		nd.setData(key);
 		size++;
 
 		/**
@@ -38,12 +31,13 @@ public class SinglyLinkedList<T> {
 			tail = nd;
 		} else {
 			// set current tail next link to new node
-			tail.setNextRef(nd);
+			tail.setNext(nd);
 			// set tail as newly created node
 			tail = nd;
 		}
 		return null;
 	}
+	
 
 	public static void traverse() {
 
@@ -52,60 +46,130 @@ public class SinglyLinkedList<T> {
 			if (tmp == null) {
 				break;
 			}
-			System.out.println(tmp.getValue());
-			tmp = tmp.getNextRef();
+			System.out.println(tmp.getData());
+			tmp = tmp.getNext();
 		}
 
 	}
-
-	public String toString() {
-		Node temp = head;
-		String elements = "";
-		while (temp.getNextRef() != null) {
-			elements += " " + temp.getValue() + " ";
-			temp = temp.getNextRef();
+	 
+	public static boolean search(String x) {
+		Node current = head; // Initialize current
+		while (current != null) {
+			if (current.getData().equals(x))
+				return true;
+			   // data found
+			current = current.getNext();
 		}
-		return elements + temp.getValue();
+		return false; // data not found
 	}
-
-	public static void get() {
-
-		Node tmp = head;
-		int k = 0;
-		while (true) {
-			if (tmp == null) {
-				break;
+	public static  int index(String data) {
+		Node curr = head;
+		int count = 0;
+		while (curr != null) {
+			if (curr.getData().equals(data)) {
+				curr.getNext();
+				return count;
 			}
-			str[k] = String.valueOf(tmp.getValue());
-			k++;
-			tmp = tmp.getNextRef();
+			count++;
+			curr = curr.getNext();
 		}
+		assert (false);
+		return 0;
 	}
+ public static void deleteNode(int position) 
+{ 
+    // If linked list is empty 
+    if (head == null) 
+        return; 
 
-	public static SinglyLinkedList searchKey(SinglyLinkedList list, String key) {
-		Node current = head;
-		boolean status = false;
+    // Store head node 
+    Node temp = head; 
 
-		for (int i = 0; i < str.length - 1; i++) {
-			if (str[i] != null && str[i].equals(key)) {
-				status = true;
-				str[i] = null;
-				current = current.getNextRef();
-				break;
-			}
-		}
-		for (int i = 0; i < str.length; i++) {
-			if (str[i] != null)
-				newList.addElement(str[i]);
-		}
-		if (status) {
-			System.out.println("Element is present in the list ");
-		} else {
-			System.out.println("Element is not present in the list ");
-			newList.addElement(key);
-		}
+    // If head needs to be removed 
+    if (position == 0) 
+    { 
+        head = temp.next; // Change head 
+        return; 
+    } 
 
-		return newList;
-	}
-	
+    // Find previous node of the node to be deleted 
+    for (int i=0; temp!=null && i<position-1; i++) 
+        temp = temp.next; 
+
+    // If position is more than number of ndoes 
+    if (temp == null || temp.next == null) 
+        return; 
+
+    // Node temp->next is the node to be deleted 
+    // Store pointer to the next of node to be deleted 
+    Node next = temp.next.next; 
+
+    temp.next = next;  // Unlink the deleted node from list 
 }
+ public static String[] convArray(String[] array) {
+		Node tnode = head;
+		int i = 0;
+		while (tnode != null) {
+			array[i] = String.valueOf(tnode.getData());
+			tnode = tnode.getNext();
+			i++;
+		}
+		return array;
+	}
+
+
+	public static int size() {
+		Node tnode = head;
+		int len = 0;
+		while (tnode != null) {
+			len++;
+			tnode = tnode.getNext();
+		}
+		return len;
+	
+	}
+
+	public static int[] convertIntArray(String[] arr) {
+			int[] arrInt = new int[arr.length];
+			for (int i = 0; i < arr.length; i++) {
+				arrInt[i] = Integer.valueOf(arr[i]);
+			}
+			return arrInt;
+		}
+
+	
+		public static int[] sort(int[] array) {
+			int temp;
+			for (int i = 0; i < array.length; i++) {
+				for (int j = 0; j < array.length - 1; j++) {
+					if (array[j] > array[j + 1]) {
+						temp = array[j];
+						array[j] = array[j + 1];
+						array[j + 1] = temp;
+					}
+				}
+			}
+			return array;
+		}
+
+		public static void add(int i)
+		{
+			Node nd = new Node();
+            nd.setData(i);
+            System.out.println("Adding: " + i);
+				if (isEmpty()) {
+					head = nd;
+					tail = nd;
+				} else {
+
+					// Function call to set the data present in Node class
+					// of com.bridgelabz.datastructureprograms
+					tail.setNext(nd);
+					tail = nd;
+				}
+			}
+			
+		}
+	
+		
+

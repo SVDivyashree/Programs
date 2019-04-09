@@ -14,23 +14,16 @@ public class Calender
             "July", "August", "September",
             "October", "November", "December"
         };
-
-        // days[i] = number of days in month i
-        int[] days = {
-            0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-        };
+            int[] days = {
+            0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         if(month==2)
         FunctionalUtil.leapYear(year);
         days[month]=29;
-
-        
-
-        // print calendar header
         System.out.println("   " + months[month] + " " + year);
         System.out.println(" S  M Tu  W Th  F  S");
 
         // starting day
-        int d = AlgorithmsUtil.dayOfWeek(month, 1, year);
+        int d = AlgorithmsUtil.dayOfWeek(month, 6, year);
 
         // print the calendar
        DataStructuresUtil.printCalender(d,days,month);
