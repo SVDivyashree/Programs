@@ -17,7 +17,7 @@ public class FunctionalUtil {
 
 	}
 	public static String inputString() {
-		return scanner.nextLine();
+		return scanner.next();
 	}
 	public static double inputDouble() {
 		return scanner.nextDouble();

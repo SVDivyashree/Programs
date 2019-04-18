@@ -8,13 +8,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import com.bridgelabz.util.FunctionalUtil;
+import com.bridgelabz.util.Node;
 import com.bridgelabz.util.SinglyLinkedList;
 
 public class UnorderedList {
 	public static void main(String args[]) throws IOException {
 		String content = new String();
 		File file = new File("C:\\Users\\Divya\\Desktop\\words.txt");
-		SinglyLinkedList<String> list = new SinglyLinkedList<String>();
+	    SinglyLinkedList<String> list= new SinglyLinkedList<>();
 		try {
 			Scanner sc = new Scanner(new FileInputStream(file));
 			while (sc.hasNextLine()) {
@@ -42,7 +43,7 @@ public class UnorderedList {
 		if (res == true) {
 			System.out.println("Element present in the list");
 			int index = SinglyLinkedList.index(key);
-			
+
 			SinglyLinkedList.deleteNode(index);
 			SinglyLinkedList.traverse();
 		} else {
@@ -58,7 +59,9 @@ public class UnorderedList {
 		for (int i = 0; i < result.length; i++) {
 			bw.write(result[i] + " ");
 		}
-
+		
+//		Node st = list.traverse();
+//		System.out.println(st);
 		bw.close();
 
 	}

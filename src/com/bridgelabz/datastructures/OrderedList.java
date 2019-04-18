@@ -23,19 +23,19 @@ public static void main(String[] args) throws IOException {
 		
 		//Customized Linked List
 		CustomLinkedList<Integer> ds=new CustomLinkedList<>();
-		String filename="C:\\Users\\Divya\\Desktop\\file.txt";
+		String filename="C:\\Users\\Divya\\Desktop\\number.txt";
 		FileReader fr=new FileReader(filename);
 		BufferedReader br=new BufferedReader(fr);
 		String number[]=new String[100];
 		String num;
-		String delimitor=",";
+		String delimitor=" ";
 		while((num=br.readLine())!=null){
 			number=num.split(delimitor);
 		}
 		Integer[] intArr=new Integer[number.length];
 		for(int i=0;i<intArr.length;i++)
 		{
-			intArr[i]=Integer.valueOf(number[i]);
+			intArr[i]=Integer.valueOf(i);
 		}
 		Integer[] sorted=DataStructuresUtil.sort(intArr);
 		System.out.println("The numbers in the file are:");

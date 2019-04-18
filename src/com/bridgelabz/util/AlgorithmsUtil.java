@@ -46,7 +46,7 @@ import java.util.Scanner;
 	}
 	// Insertion Sort
 
-	public static <T extends Comparable<T>> void insertionSort(T[] array) {
+	public static <T extends Comparable<T>> String[] insertionSort(T[] array) {
 		int i = 0, j = 0, w;
 		for (i = 0; i < array.length; i++) {
 			for (j = 0; j <= i; j++) {
@@ -63,6 +63,7 @@ import java.util.Scanner;
 		for (T kl : array)
 			System.out.println(kl + " ");
 		System.out.println(" ");
+		return null;
 	}
 
 	// BINARY SEARCH

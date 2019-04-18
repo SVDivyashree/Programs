@@ -79,22 +79,12 @@ public class BinarySearchTree
 	// Driver Code 
 	public static void main (String[] args) 
 	{ 
-	    int count1, count2, n = 3; 
-	  
-	    // find count of BST and  
-	    // binary trees with n nodes 
+	    int count1,n = 3; 
 	    count1 = countBST(n); 
-	    count2 = countBT(n);  
-	  
-	    // print count of BST and  
-	    // binary trees with n nodes 
 	    System.out.println("Count of BST with "+  
 	                            n +" nodes is "+  
 	                                    count1); 
-	    System.out.println("Count of binary " +  
-	                             "trees with "+  
-	                         n + " nodes is " +  
-	                                   count2); 
+	   
 	} 
 	} 
 
