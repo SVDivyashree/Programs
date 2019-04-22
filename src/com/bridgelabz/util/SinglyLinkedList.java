@@ -17,8 +17,8 @@ public class SinglyLinkedList<T extends Comparable<T>> {
 	}
 
 	public static String addElement(String key) {
-		Node nd = new Node();
-		nd.setData(key);
+		Node nd = new Node(); //creates a new  Node object
+		nd.setData(key);//sets the value to the node
 		size++;
 
 		/**
@@ -73,8 +73,8 @@ public class SinglyLinkedList<T extends Comparable<T>> {
 			count++;
 			curr = curr.getNext();
 		}
-		assert (false);
-		return 0;
+		//assert (false);
+		return  0;
 	}
  public static void deleteNode(int position) 
 { 
@@ -93,10 +93,10 @@ public class SinglyLinkedList<T extends Comparable<T>> {
     } 
 
     // Find previous node of the node to be deleted 
-    for (int i=0; temp!=null && i<position-1; i++) 
+    for (int i=0; temp!=null  && i<position-1; i++) 
         temp = temp.next; 
 
-    // If position is more than number of ndoes 
+    // If position is more than number of nodes 
     if (temp == null || temp.next == null) 
         return; 
 
@@ -107,7 +107,7 @@ public class SinglyLinkedList<T extends Comparable<T>> {
     temp.next = next;  // Unlink the deleted node from list 
 }
  public static String[] convArray(String[] array) {
-		Node tnode = head;
+		          Node tnode = head;
 		int i = 0;
 		while (tnode != null) {
 			array[i] = String.valueOf(tnode.getData());
@@ -150,26 +150,24 @@ public class SinglyLinkedList<T extends Comparable<T>> {
 				}
 			}
 			return array;
-		}
-
-		public static void add(int i)
-		{
-			Node nd = new Node();
-            nd.setData(i);
-            System.out.println("Adding: " + i);
-				if (isEmpty()) {
-					head = nd;
-					tail = nd;
-				} else {
-
-					// Function call to set the data present in Node class
-					// of com.bridgelabz.datastructureprograms
-					tail.setNext(nd);
-					tail = nd;
-				}
-			}
-			
-		}
-	
 		
+}
 
+//		public static void 	(int i)
+//		{
+//			Node nd = new Node();
+//            nd.setData(i);
+//            System.out.println("Adding: " + i);
+//				if (isEmpty()) {
+//					head = nd;
+//					tail = nd;
+//				} else {
+//
+//					// Function call to set the data present in Node class
+//					// of com.bridgelabz.datastructureprograms
+//					tail.setNext(nd);
+//					tail = nd;
+//				}
+//			}
+//			
+}

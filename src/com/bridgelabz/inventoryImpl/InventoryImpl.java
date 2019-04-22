@@ -1,5 +1,6 @@
 package com.bridgelabz.inventoryImpl;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,10 +10,12 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import com.bridgelabz.common.exception.CustomException;
 import com.bridgelabz.inventoryinterface.InventoryInterface;
 import com.bridgelabz.inventorymodel.Inventory;
+import com.bridgelabz.stockModel.Stock;
 import com.bridgelabz.util.FunctionalUtil;
 import com.google.gson.Gson;
 
@@ -20,25 +23,42 @@ public class InventoryImpl implements InventoryInterface {
 
 	List<Inventory> inventories = new ArrayList<>();
 
-	public InventoryImpl() {
-		fileRead();
-	}
+	public void readfile() {
+		
 
-	public void fileRead() {
 		JSONParser parser = new JSONParser();
-		try {
-			Object obj = parser.parse(new FileReader("C:\\Users\\Divya\\Desktop\\d\\inventory.json"));
-			JSONObject jsonObject = (JSONObject) obj;
-			System.out.println(jsonObject);
-			JSONArray jsonArray = (JSONArray) jsonObject.get("listOfInventories");
-			for (Object obj1 : jsonArray) {
-				Inventory inventory = new Inventory((JSONObject) obj1);
-				inventories.add(inventory);
+		{
+			try {
+				Object obj = parser.parse(new FileReader("C:\\Users\\Divya\\Desktop\\d\\inventory.json"));
+				JSONObject jsonObject = (JSONObject) obj;
+				System.out.println(jsonObject);
+				JSONArray jsonArray = (JSONArray) jsonObject.get("listOfInventories");
+
+
+				for(Object obj1: jsonArray)
+				{
+					Inventory items= new Inventory();
+                    String name = (String) ((JSONObject) obj1).get("name");
+					double weight = (long) ((JSONObject) obj1).get("weight");
+				    double price = (double) ((JSONObject) obj1).get("price");
+				    items.setName(name);
+				    items.setWeight(weight);
+				    items.setPrice(price);
+				    inventories.add(items);
+				    
+					}
 			}
-		} catch (Exception e) {
-			throw new CustomException("Error reading inventory ", e);
-		}
-	}
+		catch (FileNotFoundException e) {
+			e.printStackTrace(); 
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		} catch (ParseException e) {
+
+			e.printStackTrace();
+		}}
+			}
+		
 
 	@Override
 	public void addInventory(String name, int weight, double price) {
@@ -52,7 +72,7 @@ public class InventoryImpl implements InventoryInterface {
 
 	@Override
 	public void calculateInventory() {
-		
+
 		inventories.forEach(inventory -> {
 			System.out.println(
 					"Total price of " + inventory.getName() + " is " + (inventory.getPrice() * inventory.getWeight()));

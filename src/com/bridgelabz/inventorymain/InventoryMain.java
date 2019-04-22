@@ -13,8 +13,8 @@ public class InventoryMain
 		InventoryImpl imp=new InventoryImpl();
 		{
 			
-			imp.fileRead();
-//			imp.addInventory("lentils", 12, 54);
+			imp.readfile();
+			imp.addInventory("lentils", 12, 54);
 			imp.calculateInventory();
 			imp.removeInventory();
 			imp.writeFile();

@@ -3,7 +3,7 @@ package com.bridgelabz.util;
 import java.util.Scanner;
 
 public class CustomLinkedList<T> {
-private static Node head;
+static Node head;
 private static Node tail;
 
     public CustomLinkedList() 

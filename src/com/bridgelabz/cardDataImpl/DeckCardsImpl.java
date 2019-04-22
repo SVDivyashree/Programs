@@ -1,11 +1,11 @@
 package com.bridgelabz.cardDataImpl;
 
-import com.bridgelabz.carddata.cardData;
+import com.bridgelabz.carddata.DeckofCardManager;
 import com.bridgelabz.util.AlgorithmsUtil;
 import com.bridgelabz.util.DataStructuresUtil;
 import com.bridgelabz.util.Queue;
 
-public class DeckCardsImpl implements cardData {
+public class DeckCardsImpl implements DeckofCardManager {
 	String[] suits = { "Clubs", "Diamonds", "Hearts", "Spades" };
 	String[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
 	int n = suits.length * ranks.length;
@@ -51,12 +51,13 @@ public class DeckCardsImpl implements cardData {
 		}
 		System.out.print("\n");
 	
-			
+			int k=0;
 			for(int i=0;i<9;i++)
 			{
 				for(int j=0;j<4;j++)
 				{
-				System.out.print(" " +(deck[i + j * 4])+" \t" );
+				System.out.print(" " +(deck[k])+" \t" );
+				k++;
 				}
 			
 		System.out.println();

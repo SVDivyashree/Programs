@@ -57,17 +57,7 @@ public class InventoryManagerImpl implements InventoryManager {
 	}
      
 	
-		public void addInventory(String name, int weight, double price) {
-			Inventory inventory = new Inventory();
-			inventory.setName(name);
-			inventory.setWeight(weight);
-			inventory.setPrice(price);
-			riceItems.add(inventory);
-			//wheatItems.add(inventory);
-			//pulseItems.add(inventory);
-			riceItems.forEach(inventory1 -> System.out.println(inventory1.toString()));
-		}
-	
+		
 	@Override
 	public void calculateInventoryPrice() {
 		double totalValueOfRice = getTotalValue(riceItems);

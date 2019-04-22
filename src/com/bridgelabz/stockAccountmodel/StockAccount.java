@@ -1,20 +1,50 @@
 package com.bridgelabz.stockAccountmodel;
 
-public class StockAccount 
-{
-	private int amount;
-	public int getAmount() {
-		return amount;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class StockAccount {
+	private String stockCompany;
+	private double noOfShares;
+	private double sharePrice;
+	private String currentDateTime;
+
+	public String getStockCompany() {
+		return stockCompany;
 	}
-	public void setAmount(int amount) {
-		this.amount = amount;
+
+	public void setStockCompany(String stockCompany) {
+		this.stockCompany = stockCompany;
 	}
-	public String getSymbol() {
-		return symbol;
+
+	public double getNoOfShares() {
+		return noOfShares;
 	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+
+	public void setNoOfShares(double noOfShares) {
+		this.noOfShares = noOfShares;
 	}
-	private String symbol;
+
+	public double getSharePrice() {
+		return sharePrice;
+	}
+
+	public void setSharePrice(double sharePrice) {
+		this.sharePrice = sharePrice;
+	}
+
+	public String getCurrentDateTime() {
+		return currentDateTime;
+	}
+
+	public void setCurrentDateTime(String currentDateTime) {
+		this.currentDateTime = currentDateTime;
+	}
+
+	@Override
+	public String toString() {
+		return "stockCompany: " + stockCompany + "\n " + "noOfShares: " + noOfShares + "\n " + "sharePrice: "
+				+ sharePrice + "\n " + "DateTime: " + currentDateTime;
+	}
 
 }

@@ -1,6 +1,11 @@
 eclipse.preferences.version=1
 encoding//src/com/bridgelabz/algorithms/BinarySearchWord.java=UTF-8
+encoding//src/com/bridgelabz/cliniqueManagement/Implementation/AppointmentImplementation.java=UTF-8
+encoding//src/com/bridgelabz/cliniqueManagement/Implementation/DoctorImplementation.java=UTF-8
+encoding//src/com/bridgelabz/cliniqueManagement/Implementation/PatientImplementation.java=UTF-8
 encoding//src/com/bridgelabz/datastructures/UnorderedList.java=UTF-8
 encoding//src/com/bridgelabz/inventoryImpl/InventoryImpl.java=UTF-8
 encoding//src/com/bridgelabz/inventorymain/InventoryMain.java=UTF-8
 encoding//src/com/bridgelabz/inventorymanagementimpl/InventoryManagerImpl.java=UTF-8
+encoding//src/com/bridgelabz/regex/main/Regex.java=UTF-8
+encoding//src/com/bridgelabz/stocklistimpl/CompanyShareImpl.java=UTF-8

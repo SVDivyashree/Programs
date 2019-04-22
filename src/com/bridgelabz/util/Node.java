@@ -3,7 +3,7 @@ package com.bridgelabz.util;
 public class Node<T> implements Comparable<T>{
 	
 	private T data;
-	Node<T> next;
+	public Node<T> next;
 	private Node<T> prev;
 	
 	/**

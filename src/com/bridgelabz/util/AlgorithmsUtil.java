@@ -129,15 +129,14 @@ import java.util.Scanner;
 	}
 
 	// BUBBLE SORT
-	public static <T extends Comparable<T>> void bubbleSort(String[] strArray) 
+	public static <T extends Comparable<T>> T[] bubbleSort(T[] strArray) 
 	{
-		System.out.println("Enter number of elements"); 
-		int n = AlgorithmsUtil.inputinteger();
-
+		
+int n=strArray.length;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n - i - 1; j++) {
 				if (strArray[j + 1].compareTo(strArray[j]) < 0) {
-					String temp = strArray[j];
+					T temp = strArray[j];
 					strArray[j] = strArray[j + 1];
 					strArray[j + 1] = temp;
 				}
@@ -145,9 +144,10 @@ import java.util.Scanner;
 
 		}
 		System.out.println("The sorted elements are :");
-		for (String k : strArray) {
+		for (T k : strArray) {
 			System.out.println(k + " ");
 		}
+		return strArray;
 	}
 
 	// DAY OF THE WEEK
