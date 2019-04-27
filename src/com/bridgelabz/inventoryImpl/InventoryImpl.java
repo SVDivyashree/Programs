@@ -12,10 +12,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.common.exception.CustomException;
 import com.bridgelabz.inventoryinterface.InventoryInterface;
 import com.bridgelabz.inventorymodel.Inventory;
-import com.bridgelabz.stockModel.Stock;
 import com.bridgelabz.util.FunctionalUtil;
 import com.google.gson.Gson;
 
@@ -24,41 +22,35 @@ public class InventoryImpl implements InventoryInterface {
 	List<Inventory> inventories = new ArrayList<>();
 
 	public void readfile() {
-		
 
 		JSONParser parser = new JSONParser();
-		{
-			try {
-				Object obj = parser.parse(new FileReader("C:\\Users\\Divya\\Desktop\\d\\inventory.json"));
-				JSONObject jsonObject = (JSONObject) obj;
-				System.out.println(jsonObject);
-				JSONArray jsonArray = (JSONArray) jsonObject.get("listOfInventories");
+		try {
+			Object obj = parser.parse(new FileReader("C:\\Users\\Divya\\Desktop\\d\\inventory.json"));
+			JSONObject jsonObject = (JSONObject) obj;
+			System.out.println(jsonObject);
+			JSONArray jsonArray = (JSONArray) jsonObject.get("listOfInventories");
 
+			for (Object obj1 : jsonArray) {
+				Inventory items = new Inventory();
+				String name = (String) ((JSONObject) obj1).get("name");
+				double weight = (double) ((JSONObject) obj1).get("weight");
+				double price = (double) ((JSONObject) obj1).get("price");
+				items.setName(name);
+				items.setWeight(weight);
+				items.setPrice(price);
+				inventories.add(items);
 
-				for(Object obj1: jsonArray)
-				{
-					Inventory items= new Inventory();
-                    String name = (String) ((JSONObject) obj1).get("name");
-					double weight = (long) ((JSONObject) obj1).get("weight");
-				    double price = (double) ((JSONObject) obj1).get("price");
-				    items.setName(name);
-				    items.setWeight(weight);
-				    items.setPrice(price);
-				    inventories.add(items);
-				    
-					}
 			}
-		catch (FileNotFoundException e) {
-			e.printStackTrace(); 
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		} catch (ParseException e) {
 
 			e.printStackTrace();
-		}}
-			}
-		
+		}
+	}
 
 	@Override
 	public void addInventory(String name, int weight, double price) {
